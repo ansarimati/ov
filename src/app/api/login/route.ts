@@ -24,7 +24,17 @@ export async function POST (req: NextRequest) {
       const accessToken =  generateAccessToken(tokenPayload);
       const refreshToken = generateRefreshToken(tokenPayload);
 
-      
+      return NextResponse.json({ success: true, data: {
+        user: {
+          id: user._id,
+          email: user.email,
+          name: user.name,
+          role: user.role,
+          subscription: user.subscription
+        },
+        accessToken,
+        refreshToken,
+      } }, { status: 201 })
   } catch (error: any) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 })
   }

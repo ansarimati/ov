@@ -3,6 +3,7 @@ import { NextRequest } from "next/server";
 import { connectDb } from "./db";
 import { User } from "@/models/User";
 import { UserRole } from "@/types/enums";
+import { IUser } from "@/types/interfaces";
 
 function getEnvVariable (key: string): string {
   const value = process.env[key];
@@ -45,7 +46,7 @@ export function verifyRefreshToken (token: string): TokenPayload | null {
   }
 }
 
-export async function getAuthUser (req: NextRequest) {
+export async function getAuthUser (req: NextRequest): Promise<IUser | null> {
   const authHeader = req.headers.get("authorization");
   if (!authHeader?.startsWith("Bearer ")) return null;
   

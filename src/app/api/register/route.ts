@@ -35,8 +35,6 @@ export async function POST (req: NextRequest) {
       }
     })
 
-    user.save();
-
     const tokenPayload = {
       userId: user._id.toString(),
       email: user.email,

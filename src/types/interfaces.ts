@@ -11,7 +11,7 @@ export interface IUser {
   role: E.UserRole;
   accountStatus: E.AccountStatus;
   avatar?: string;
-  parantAdmin?: string;
+  parentAdmin?: string;
   isEmailVerified: boolean;
   isTwoFactorEnabled: boolean;
   twoFactorSecret?: string;
@@ -67,7 +67,7 @@ export interface ISubscription {
   billingCycle: E.BillingCycle;
   stripeCustomerId?: string;
   stripeSubscriptionId?: string;
-  currentPeriodeStart?: Date;
+  currentPeriodStart?: Date;
   currentPeriodEnd?: Date;
   trialEndsAt?: Date;
   features: IPlanFeatures;
@@ -961,7 +961,7 @@ export interface IBallEvent {
   wagonWheelRegion?: E.WagonWeelRegion;
 
   // Bowling details
-  delivaryType?: E.DeliveryType;
+  deliveryType?: E.DeliveryType;
   bowlingLength?: E.BowlingLength;
   bowlingLine?: E.BowlingLine;
   speed?: number;
